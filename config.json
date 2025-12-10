@@ -1,0 +1,7 @@
+{
+    "email_origen": "no lo pongo por seguridad",
+    "password": "no lo pongo por seguridad",
+    "smtp_servidor": "smtp.gmail.com",
+    "smtp_puerto": 465,
+    "plantilla": "Hola {nombre_empresa},\r\n\r\nSomos una agencia que ayuda a negocios como {nombre_empresa} ({sector}) a tener presencia online en {ciudad}.\r\n\r\nUn saludo."
+}
