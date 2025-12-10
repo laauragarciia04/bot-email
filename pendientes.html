@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Empresas pendientes</h3>
+
+{% if empresas %}
+<table class="table table-striped bg-white">
+  <thead><tr><th>#</th><th>Nombre</th><th>Email</th><th>Sector</th><th>Ciudad</th></tr></thead>
+  <tbody>
+    {% for e in empresas %}
+    <tr>
+      <td>{{ e.id }}</td>
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.email }}</td>
+      <td>{{ e.sector }}</td>
+      <td>{{ e.ciudad }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<form method="POST" action="{{ url_for('send_emails') }}">
+  <button class="btn btn-success">Enviar correos pendientes</button>
+  <a class="btn btn-secondary" href="{{ url_for('list_empresas') }}">Volver</a>
+</form>
+{% else %}
+  <div class="alert alert-info">No hay empresas pendientes.</div>
+{% endif %}
+{% endblock %}
