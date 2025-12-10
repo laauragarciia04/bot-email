@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Enviar emails pendientes</h3>
+
+<p>Correos pendientes: <strong>{{ pendientes|length }}</strong></p>
+
+{% if pendientes %}
+<form method="POST">
+  <button class="btn btn-success">Enviar ahora</button>
+  <a class="btn btn-secondary" href="{{ url_for('list_empresas') }}">Volver</a>
+</form>
+{% else %}
+  <div class="alert alert-info">No hay empresas pendientes.</div>
+{% endif %}
+{% endblock %}
