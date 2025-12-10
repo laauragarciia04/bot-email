@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Editar empresa</h3>
+<form method="POST">
+  <div class="mb-3"><label>Nombre</label><input class="form-control" name="nombre" value="{{ empresa.nombre }}" required></div>
+  <div class="mb-3"><label>Email</label><input class="form-control" name="email" type="email" value="{{ empresa.email }}" required></div>
+  <div class="mb-3"><label>Sector</label><input class="form-control" name="sector" value="{{ empresa.sector }}"></div>
+  <div class="mb-3"><label>Ciudad</label><input class="form-control" name="ciudad" value="{{ empresa.ciudad }}"></div>
+  <button class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}
