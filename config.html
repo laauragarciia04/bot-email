@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Configuración</h3>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Email origen</label>
+    <input class="form-control" name="email_origen" value="{{ config.email_origen }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Contraseña / App password</label>
+    <input class="form-control" name="password" value="{{ config.password }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">SMTP servidor</label>
+    <input class="form-control" name="smtp_servidor" value="{{ config.smtp_servidor }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">SMTP puerto</label>
+    <input type="number" class="form-control" name="smtp_puerto" value="{{ config.smtp_puerto }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Plantilla (usa {nombre_empresa}, {sector}, {ciudad})</label>
+    <textarea class="form-control" name="plantilla" rows="6">{{ config.plantilla }}</textarea>
+  </div>
+  <button class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}
