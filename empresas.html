@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Empresas (todas)</h3>
+
+<table class="table table-striped bg-white">
+  <thead><tr><th>#</th><th>Nombre</th><th>Email</th><th>Sector</th><th>Ciudad</th><th>Enviado</th><th>Acciones</th></tr></thead>
+  <tbody>
+    {% for e in empresas %}
+    <tr>
+      <td>{{ e.id }}</td>
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.email }}</td>
+      <td>{{ e.sector }}</td>
+      <td>{{ e.ciudad }}</td>
+      <td>{% if e.enviado %}<span class="badge bg-success">Sí</span>{% else %}<span class="badge bg-secondary">No</span>{% endif %}</td>
+      <td>
+        <a class="btn btn-sm btn-outline-primary" href="{{ url_for('edit_empresa', id=e.id) }}">Editar</a>
+        <form style="display:inline" method="POST" action="{{ url_for('delete_empresa', id=e.id) }}" onsubmit="return confirm('¿Eliminar empresa?')">
+          <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
